@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Love ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Quicksand',sans-serif;
+}
+
+body{
+
+height:100vh;
+overflow:hidden;
+background:linear-gradient(135deg,#ffd6e7,#ffeef5,#fff8fc);
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+
+}
+
+.card{
+
+width:90%;
+max-width:650px;
+background:rgba(255,255,255,.35);
+backdrop-filter:blur(15px);
+padding:45px;
+border-radius:30px;
+text-align:center;
+box-shadow:0 15px 40px rgba(255,105,180,.25);
+z-index:5;
+
+}
+
+h1{
+
+font-size:45px;
+margin-bottom:20px;
+
+}
+
+#message{
+
+font-size:23px;
+line-height:1.7;
+color:#444;
+min-height:200px;
+
+}
+
+button{
+
+margin-top:30px;
+padding:15px 40px;
+font-size:20px;
+border:none;
+border-radius:40px;
+background:#ff69b4;
+color:white;
+cursor:pointer;
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:scale(1.08);
+
+}
+
+.emoji{
+
+position:absolute;
+font-size:42px;
+animation:float linear infinite;
+opacity:.9;
+
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(110vh);
+}
+
+100%{
+transform:translateY(-120vh);
+}
+
+}
+
+.heart{
+
+position:absolute;
+color:#ff4f95;
+font-size:24px;
+animation:hearts 6s linear forwards;
+
+}
+
+@keyframes hearts{
+
+0%{
+
+transform:translateY(0) scale(.5);
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-500px) scale(2);
+opacity:0;
+
+}
+
+}
+
+.footer{
+
+margin-top:20px;
+font-size:18px;
+color:#ff4f95;
+font-weight:bold;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>🐱💕🐰</h1>
+
+<div id="message"></div>
+
+<button onclick="loveExplosion()">
+I Love You ❤️
+</button>
+
+<div class="footer">
+Forever Yours ❤️
+</div>
+
+</div>
+
+<script>
+
+const text=`I'm really sorry... 🥺❤️
+
+I promise I will try my absolute best to never repeat my mistakes ever again.
+
+You mean everything to me.
+
+Seeing you hurt hurts me too.
+
+Thank you for staying with me despite everything.
+
+I love you soooo much ❤️🐱🐰`;
+
+let i=0;
+
+function type(){
+
+if(i<text.length){
+
+document.getElementById("message").innerHTML+=text.charAt(i);
+i++;
+
+setTimeout(type,45);
+
+}
+
+}
+
+type();
+
+const emojis=["🐱","🐰","💕","💖","🌸","✨","❤️"];
+
+function createEmoji(){
+
+let e=document.createElement("div");
+
+e.className="emoji";
+
+e.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+
+e.style.left=Math.random()*100+"vw";
+
+e.style.animationDuration=(8+Math.random()*6)+"s";
+
+e.style.fontSize=(25+Math.random()*30)+"px";
+
+document.body.appendChild(e);
+
+setTimeout(()=>{
+
+e.remove();
+
+},15000);
+
+}
+
+setInterval(createEmoji,700);
+
+function loveExplosion(){
+
+for(let i=0;i<60;i++){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="❤️";
+
+h.style.left=(window.innerWidth/2+(Math.random()*300-150))+"px";
+
+h.style.top=(window.innerHeight/2)+"px";
+
+h.style.fontSize=(15+Math.random()*25)+"px";
+
+document.body.appendChild(h);
+
+setTimeout(()=>{
+
+h.remove();
+
+},6000);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
